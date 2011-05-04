@@ -1,4 +1,5 @@
 $: << File.dirname(__FILE__)
+require 'ffi'
 require 'grammar_police/sentence'
 require 'grammar_police/dictionary'
 require 'grammar_police/linkage'
