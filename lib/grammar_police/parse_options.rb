@@ -1,8 +1,8 @@
 module GrammarPolice
   class ParseOptions
     extend FFI::Library
-    ffi_lib "#{File.dirname(__FILE__)}/../../c/link-grammar.so"
-    
+    ffi_lib File.expand_path('../../c/link-grammar.so', File.dirname(__FILE__))
+     
     #return Parse_Options with default settings (linkage_limit=10000, short_length=6)
     attach_function(:parse_options_create, [], :pointer)
     

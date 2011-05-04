@@ -1,7 +1,7 @@
 module GrammarPolice
   class Sentence
     extend FFI::Library
-    ffi_lib "#{File.dirname(__FILE__)}/../../c/link-grammar.so"
+    ffi_lib File.expand_path('../../c/link-grammar.so', File.dirname(__FILE__))
     #this requires initializing dictionary everytime and is very slow (probably has mem leakage too)
     attach_function(:number_of_linkages, [:string], :int)
     

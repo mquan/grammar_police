@@ -3,7 +3,8 @@ module GrammarPolice
   #only reason it works is data is 2 levels up from this ruby file and also 2 levels up from its C code
   class Dictionary
     extend FFI::Library
-    ffi_lib "#{File.dirname(__FILE__)}/../../c/link-grammar.so"
+    ffi_lib File.expand_path('../../c/link-grammar.so', File.dirname(__FILE__))
+    
     #set locale ensure utf8 data in dictionary can be read
     #attach_function(:setlocale, [LC_ALL, "])
     

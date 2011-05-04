@@ -1,7 +1,7 @@
 module GrammarPolice
   class Linkage
     extend FFI::Library
-    ffi_lib "#{File.dirname(__FILE__)}/../../c/link-grammar.so"
+    ffi_lib File.expand_path('../../c/link-grammar.so', File.dirname(__FILE__))
     
     attach_function(:linkage_create, [:int, :pointer, :pointer], :pointer) #(0, sentence, opts) return Linkage
     attach_function(:linkage_delete, [:pointer], :void) #(linkage)

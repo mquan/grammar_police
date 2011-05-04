@@ -7,5 +7,6 @@ require 'grammar_police/parse_options'
 
 module GrammarPolice
   #set dictionary path based on the installed gem path
-  GrammarPolice::Dictionary.dictionary_set_data_dir("#{Gem.loaded_specs['grammar_police'].full_gem_path}/data/")
+  GrammarPolice::Dictionary.dictionary_set_data_dir("#{Gem.loaded_specs['grammar_police'].full_gem_path}/data")
+  #GrammarPolice::Dictionary.dictionary_set_data_dir(File.expand_path('../c/link-grammar.so', File.dirname(__FILE__)))
 end
