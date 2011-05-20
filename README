@@ -1,1 +1,13 @@
-grammar_police is a ruby wrapper for link-grammar-4.7.4
+grammar_police is a ruby wrapper for the link-grammar-4.7.4 C lib. It uses ffi so the code is much cleaner than grammar_cop.
+
+#example:
+
+require 'grammar_police'
+
+text = "Grammar is useless because there's nothing to say -- Gertrude Stein."
+
+dict = GrammarPolice::Dictionary.dictionary_create_lang("en")
+opts = GrammarPolice::ParseOptions.parse_options_create
+puts num = GrammarPolice::Sentence.count_linkages(text, dict, opts)
+GrammarPolice::ParseOptions.parse_options_delete(opts)
+GrammarPolice::Dictionary.dictionary_delete(dict)
